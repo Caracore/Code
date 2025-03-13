@@ -1,23 +1,19 @@
 import dungeon_heroes
 
 # Data
-#class data():
-class monstre(dungeon_heroes.personnage):
-    def __init__(self, nom, vie, attaque, defense, inventaire):
-        super().__init__(nom, vie, attaque, defense, inventaire)
-        pass
+class data():
 
-    class monstre_s(monstre):
+    class monstre_s(dungeon_heroes.monstre):
         def __init__(self, nom, vie, attaque, defense, inventaire):
             super().__init__("spider", vie, attaque, defense, inventaire)
             pass
 
-    class monstre_m(monstre):
+    class monstre_m(dungeon_heroes.monstre):
         def __init__(self, nom, vie, attaque, defense, inventaire):
             super().__init__(nom, vie, attaque, defense, inventaire)
             pass
 
-    class monstre_l(monstre):
+    class monstre_l(dungeon_heroes.monstre):
         def __init__(self, nom, vie, attaque, defense, inventaire):
             super().__init__(nom, vie, attaque, defense, inventaire)
             pass

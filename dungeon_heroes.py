@@ -1,4 +1,5 @@
 import random
+version = "1.0.0"
 
 class game():
     def __init__(self, gamemode, difficulty):
@@ -15,9 +16,8 @@ class game():
         else:
             self.difficulty = "easy"
 
-    class personnage(game):
+    class personnage():
         def __init__(self, nom, vie, attaque, defense, inventaire, argent):
-            super().__init__(nom, vie, attaque, defense, inventaire, argent)
             self.nom = nom
             self.vie = vie
             self.attaque = attaque
@@ -32,7 +32,6 @@ class game():
         def afficher_profile_personnage(self,):
             profile_player = self.__str__()
             print("Profile du personnage :\n" + profile_player, "\nInfo sur l'ennemi : ")
-
 
     class joueur(personnage):
         def __init__(self):
@@ -62,11 +61,6 @@ class game():
             return f"{self.nom} - {self.vie} - {self.attaque} - {self.defense} - {self.inventaire} - {self.argent}"
             pass
     
-    class ennemi(personnage):
-        def __init__(self):
-            super().__init__# rajouter input
-            pass
-
     class ally(personnage):
         def __init__(self):
             super().__init__# rajouter input
@@ -101,26 +95,40 @@ class game():
             super().__init__(nom, description, prix, vendeur, achat, vente, attaque, defense, power)
             pass
     
-    class donjon():
-        def __init__(self, nom, d_difficulty, d_loot, d_monstre, d_item):  # d_loot voir le loot potentiel
-            self.nom = nom
-            self.d_difficulty = d_difficulty
-            self.d_loot = d_loot
-            self.d_monstre = d_monstre
-            self.d_item = d_item
-            pass
-    
-    class village():
-        def __init__(self, nom, v_difficulty, v_loot, v_monstre, v_item):  # v_loot voir le loot potentiel
-            self.nom = nom
-            self.v_difficulty = v_difficulty
-            self.v_loot = v_loot
-            self.v_monstre = v_monstre
-            self.v_item = v_item
-            pass
-    
     class loot(item):
         def __init__(self, nom, description, prix, vendeur, achat, vente, attaque, defense, power, rareté, type): # rajouter type
             super().__init__(nom, description, prix, vendeur, achat, vente, attaque, defense, power, type)
             self.rareté = ["commun", "rare", "epique", "legendaire", "mythique", "insane"]
             pass
+
+class ennemi():
+    def __init__(self, nom, vie, attaque, defense, inventaire):
+        self.nom = nom
+        self.vie = vie
+        self.attaque = attaque
+        self.defense = defense
+        self.inventaire = inventaire
+        pass
+
+class monstre(ennemi):
+    def __init__(self, nom, vie, attaque, defense, inventaire):
+        super().__init__(nom, vie, attaque, defense, inventaire)
+        pass
+
+class donjon():
+    def __init__(self, nom, d_difficulty, d_loot, d_monstre, d_item):  # d_loot voir le loot potentiel
+        self.nom = nom
+        self.d_difficulty = d_difficulty
+        self.d_loot = d_loot
+        self.d_monstre = d_monstre
+        self.d_item = d_item
+        pass
+
+class village():
+    def __init__(self, nom, v_difficulty, v_loot, v_monstre, v_item):  # v_loot voir le loot potentiel
+        self.nom = nom
+        self.v_difficulty = v_difficulty
+        self.v_loot = v_loot
+        self.v_monstre = v_monstre
+        self.v_item = v_item
+        pass
