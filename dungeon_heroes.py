@@ -15,6 +15,7 @@ class game():
             self.difficulty = "custom funny" # menu_funny
         else:
             self.difficulty = "easy"
+        self.name = ""
 
     class personnage():
         def __init__(self, nom, vie, attaque, defense, inventaire, argent):
