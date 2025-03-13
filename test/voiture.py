@@ -21,4 +21,7 @@ class Voiture:
             self.vitesse -= 1
         else:
             self.vitesse += 0
-        
+    def __str__(self):
+        return f"{self.name} ({self.description})\nMarque: {self.marque}\nVitesse max: {self.vitesse_max} km/h\nRoues: {self.roues}"
+    
+       
